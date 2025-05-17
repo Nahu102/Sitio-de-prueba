@@ -1,17 +1,15 @@
 /* estilos.css */
 
-/* Estructura flex para la tarjeta */
+/* Imagen tarjeta ocupa toda la altura disponible sin deformarse */
 .card .row.g-0 {
   display: flex;
   height: 100%;
 }
 
-/* Columna imagen ocupa toda la altura */
 .card .col-md-4 {
   flex: 0 0 auto;
 }
 
-/* Imagen ocupa toda la altura del contenedor y cubre sin deformar */
 .card .col-md-4 img {
   height: 100%;
   width: auto;
@@ -21,22 +19,21 @@
   border-bottom-left-radius: 0.375rem;
 }
 
-/* La columna del contenido se adapta y alinea el botón abajo */
+/* Columna de texto y botón */
 .card .col-md-8 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Botón más pequeño y con margen superior */
+/* Botón más pequeño */
 .btn-sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
-  line-height: 1.25;
   border-radius: 0.2rem;
 }
 
-/* Contenedor del toast centrado */
+/* Toast centrado y responsive */
 .toast-container-center {
   position: fixed;
   top: 50%;
@@ -44,12 +41,11 @@
   transform: translate(-50%, -50%);
   z-index: 1055;
   width: 90vw;
-  max-width: 540px; /* Igual que tarjeta max-width */
+  max-width: 540px;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-/* Toast sin tamaño fijo, con padding para margen interno */
 .toast.toast-ajustada {
   width: 100%;
   padding: 1rem;
@@ -58,18 +54,14 @@
   overflow: hidden;
 }
 
-/* Imagen toast ocupa todo el ancho disponible con margen interno (padding del toast) */
 .toast img {
   width: 100%;
   height: auto;
-  max-height: 300px;
   object-fit: cover;
   border-radius: 0.25rem;
-  margin-bottom: 0.75rem;
-  display: block;
+  margin-bottom: 1rem;
 }
 
-/* Botón cerrar posicionado dentro del padding sin tapar */
 .toast .btn-close {
   position: absolute;
   top: 1rem;
@@ -80,26 +72,29 @@
 /* MEDIA QUERY PARA MÓVIL */
 @media (max-width: 767.98px) {
   .card .row.g-0 {
-    display: block;
+    display: block !important;
     height: auto !important;
   }
 
-  .card .col-md-4 {
+  .card .col-md-4,
+  .card .col-md-8 {
     width: 100% !important;
+    display: block !important;
     height: auto !important;
   }
 
   .card .col-md-4 img {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain;
+    max-height: 40vh;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 0.375rem 0.375rem 0 0;
   }
 
-  .card .col-md-8 {
-    width: 100% !important;
-    height: auto !important;
-    margin-top: 0.5rem;
+  .card-body {
     display: block !important;
+    height: auto !important;
   }
 
   .btn-sm {
